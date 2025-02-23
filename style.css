@@ -1,0 +1,144 @@
+body, html{
+    font-family: Roboto, sans-serif;
+    background: #F7F7F7;
+    color: #333333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    top:0;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(50, 50, 50, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.navTitle{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+.navTitle a{
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+.navMenu{
+    display: flex;
+    gap: 3rem;
+    padding-right: 1rem;
+}
+
+.navMenu a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+.navMenu a:hover,
+.navMenu a:active{
+    text-decoration: underline;
+    color:black;
+    transition: all 0.4s ease 0s;
+}
+
+/* Home */
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+
+.HomeScreen{
+    padding: 100px;
+    display: grid;
+    gap:0;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.HomeTitle{
+    font-size: 1.3rem;
+}
+
+.desc{
+    font-weight: 100;
+    font-size: 1rem;
+    color: #211b1be8;
+    display: flex;
+}
+
+.gif img{
+    width: 70%;
+}
+
+/* Parallax */
+.Parallax-container {
+    position: relative;
+    height: 150vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Parallax-container img{
+    position: absolute;
+    /* margin: auto; */
+
+}
+
+.layer1 {
+    /* top: -90%; */
+    /* top: -68rem; */
+    top: -75rem;
+    left: 4%;
+}
+
+.layer2 {
+    /* top: 22%; */
+    /* top: 45rem; */
+    top: 94rem;
+    left: 17%;
+}
+
+.layer3 {
+    top: -75rem;
+    left: 32%;
+}
+
+.layer4 {
+    top: 94rem;
+    left: 46%;
+}
+
+.layer5 {
+    top: -75rem;
+    left: 62%;
+}
+
+.layer6 {
+    top: 94rem;
+    left: 77%;
+}
+
+.layer7 {
+    top: -75rem;
+    left: 90%;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+}
+
+.rightside img{
+    border-radius: 40%;
+    width: 70%;
+}
