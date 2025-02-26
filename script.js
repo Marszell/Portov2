@@ -22,7 +22,7 @@ window.addEventListener('scroll', ()=>{
 const projects = [
     {
         title: "Bot Discord Reminder",
-        short_desc: "This bot is designed to provide schedule reminders. The bot will tag accounts in both public and private chats to remind them of predetermined schedules. This project uses Python.",
+        short_desc: "This bot is designed to provide schedule reminders. This project uses Python.",
         desc: "This project was created to help remind me about my university classroom or Zoom meetings, as I often worry about forgetting to attend classes. To address this, I developed a bot that sends reminders. Since my Discord is always active, I decided to use it as a platform for these reminders. This project is built using Python.",
         source_code: "https://github.com/Marszell/bot_discord_reminder",
         image: "./project1.png"
@@ -34,33 +34,42 @@ const projects = [
         source_code: "https://github.com/Marszell/nextadmin",
         image: "./dashboard user_2.jpg"
     }
-    // Add more projects here if needed
 ];
 
-// Function to generate HTML for a single project
+// membuat function untuk menapilkan data
 function createProjectHTML(project) {
     return `
         <div class="showproject">
             <!-- image project -->
-            <div>
-                <img src="${project.image}" alt="${project.title}">
+            <div class="project-image">
+                <img src="${project.image}">
             </div>
             <!-- text project -->
-            <div>
+            <div class="project-info">
                 <!-- Title Project -->
-                <div>
+                <div class="project-title">
                     <h4>${project.title}</h4>
                 </div>
                 <!-- Desc -->
-                <div>
+                <div class="project-desc">
                     <span>${project.short_desc}</span>
                 </div>
+                <!-- Button -->
+                <div class="project-button">
+                    <button class="learn-more">
+                        <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Details</span>
+                    </button>
+                </div>
+                <div>
             </div>
         </div>
     `;
 }
 
-// Function to display all projects
+// menampilkan function
 function displayProjects() {
     const container = document.getElementById('showproject-container');
     projects.forEach(project => {
@@ -69,5 +78,5 @@ function displayProjects() {
     });
 }
 
-// Call the function to display projects
+// Panggil function
 displayProjects();
