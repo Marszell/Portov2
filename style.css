@@ -4,6 +4,10 @@ body, html{
     color: #333333;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -334,4 +338,54 @@ button:hover .circle .icon.arrow {
    
 button:hover .button-text {
     color: #fff;
+}
+
+/* Contact */
+.contact {
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 0;
+}
+
+.contact-information {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.contact-title {
+    font-size:1.125rem ;
+    font-weight:500 ;
+}
+
+.contact-subtitle {
+    font-size:1rem ;
+    font-weight: 300;
+}
+
+/* Footer */
+footer {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.footer-icon {
+    margin-bottom: 1rem;
+}
+
+.footer-icon a {
+    margin: 0.5rem;
+}
+  
+.footer-icon svg {
+    fill: #3e3f40;
+}
+  
+.footer-icon a:hover svg {
+    fill: #000;
 }
