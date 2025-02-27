@@ -1,3 +1,4 @@
+//Parallax 
 let pyro = document.querySelector(".layer1");
 let hydro = document.querySelector(".layer2");
 let anemo = document.querySelector(".layer3");
@@ -33,6 +34,13 @@ const projects = [
         desc: "This is my university project to create a full-stack web or app. I decided to build an e-commerce platform similar to Codashop because I frequently used Codashop to top up games. This project also includes an admin dashboard for adding games, managing items, and viewing transactions. I developed this project using Next.js, PostgreSQL, CSS, Prisma, and bcrypt.",
         source_code: "https://github.com/Marszell/nextadmin",
         image: "./dashboard user_2.jpg"
+    },
+    {
+        title: "Admin Dashboard",
+        short_desc: "This project i create for learning in course nextjs, and learn how to make good ui.",
+        desc: "My project is from a Next.js course. I learned how to use Next.js with TypeScript and how to create a more interactive admin dashboard/UI, including features like Skeleton UI. This project is also full-stack, but the API was already provided by the Next.js course.",
+        source_code: "https://github.com/Marszell/course-nextjs",
+        image: "./project3.JPG"
     }
 ];
 
