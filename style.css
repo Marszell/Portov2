@@ -340,6 +340,40 @@ button:hover .button-text {
     color: #fff;
 }
 
+/* Tabs Project button */
+.tabs {
+    display: flex;
+    padding-left:0.9rem;
+    padding-right: 0.9rem;
+    margin: 50px;
+    /* padding: 4rem; */
+    border: 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* background-color: rgba(50, 50, 50, 0.8); */
+    /* backdrop-filter: blur(10px); */
+}
+
+.tab-button {
+    font-size: 25px;
+    line-height: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+}
+
+.active {
+    background-color: #161617;
+    color: #fff;
+}
+
+.tab-button:hover {
+    background-color: #cfcccc;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Contact */
 .contact {
     display: flex;
