@@ -340,18 +340,20 @@ button:hover .button-text {
     color: #fff;
 }
 
+/* Certificate css */
+.certificate-item img {
+    width:350px;
+}
+
 /* Tabs Project button */
 .tabs {
     display: flex;
     padding-left:0.9rem;
     padding-right: 0.9rem;
     margin: 50px;
-    /* padding: 4rem; */
     border: 1px solid;
     border-radius: 5px;
     box-sizing: border-box;
-    /* background-color: rgba(50, 50, 50, 0.8); */
-    /* backdrop-filter: blur(10px); */
 }
 
 .tab-button {
@@ -361,8 +363,11 @@ button:hover .button-text {
     border-radius: 10px;
     margin: 5px;
     border: none;
+    width: 170px;
 }
-
+.tab-button img{
+    width: 25px;
+}
 .active {
     background-color: #161617;
     color: #fff;
