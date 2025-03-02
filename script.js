@@ -56,69 +56,73 @@ const contentData = {
     Techstack: [
         {
             title:"HTML",
-            image:"",
+            image:"./public/icon/html.png",
         },
         {
             title:"CSS",
-            image:"",
+            image:"./public/icon/css.png",
         },
         {
             title:"Javascript",
-            image:"",
+            image:"./public/icon/javascript.png",
         },
         {
             title:"Python",
-            image:"",
+            image:"./public/icon/python.png",
         },
         {
             title:"Nextjs",
-            image:"",
+            image:"./public/icon/nextjs.png",
+        },
+        {
+            title:"Golang",
+            image:"./public/icon/golang.png",
         },
         {
             title:"Vercel",
-            image:"",
+            image:"./public/icon/vercel.jpg",
         },
         {
             title:"Postgresql",
-            image:"",
+            image:"./public/icon/postgresql.png",
         },
         {
             title:"SQL",
-            image:"",
+            image:"./public/icon/sql.png",
         },
         {
             title:"Booststrap",
-            image:"",
+            image:"./public/icon/bootstrap.png",
         },
         {
             title:"Lua",
-            image:"",
+            image:"./public/icon/lua.png",
         },
     ],
     Tools: [
         {
             title:"WebStorm",
-            image:"",
+            image:"./public/icon/webstorm.png",
         },
         {
             title:"DataGrip",
-            image:"",
+            image:"./public/icon/datagrip.jpg",
         },
         {
             title:"Github",
-            image:"",
+            image:"./public/icon/github.png",
         },
         {
             title:"Postman API",
-            image:"",
+            image:"./public/icon/postman.png",
         },
         {
             title:"Figma",
-            image:"",
+            image:"./public/icon/figma.png",
         },
         {
             title:"VSC",
-            image:"",
+            image:"./public/icon/vsc.png",
         },
     ],
 };

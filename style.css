@@ -207,6 +207,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    padding-top: 30px;
 
 }
 
@@ -345,6 +346,33 @@ button:hover .button-text {
     width:350px;
 }
 
+/* Tech Stack & Tools Css */
+.showtech-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    width: 110px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.showtech-tools:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-tools-image {
+    padding-top: 5px;
+    height: 50px;
+}
+
+.tech-tools-title h4 {
+    font-weight: 500;
+}
+
+
 /* Tabs Project button */
 .tabs {
     display: flex;
@@ -371,6 +399,10 @@ button:hover .button-text {
 .active {
     background-color: #161617;
     color: #fff;
+}
+
+.active img {
+    background-color: #fff;
 }
 
 .tab-button:hover {
