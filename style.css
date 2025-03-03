@@ -540,6 +540,14 @@ button:hover .button-text {
     font-weight: 300;
 }
 
+.contact-icon {
+    padding-top: 20px;
+}
+
+.contact-icon a {
+    margin: 0.5rem;
+}
+
 /* Footer */
 footer {
     padding: 4rem 0;
