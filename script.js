@@ -43,7 +43,21 @@ const contentData = {
             desc: "My project is from a Next.js course. I learned how to use Next.js with TypeScript and how to create a more interactive admin dashboard/UI, including features like Skeleton UI. This project is also full-stack, but the API was already provided by the Next.js course.",
             source_code: "https://github.com/Marszell/course-nextjs",
             image: "./public/project3.JPG"
-        }
+        },
+        {
+            title: "Todo List",
+            short_desc: "I created this project to learn CRUD and hone my skills in programming, this project using Nextjs, and postgresql",
+            desc: "",
+            source_code:"https://github.com/Marszell/todo-list",
+            image:"./public/todo.JPG"
+        },
+        {
+            title: "PortoV1",
+            short_desc: "This my first porto, this is an assignment from Dibimbing using HTML, CSS, and a little bit javascript",
+            desc: "this a simple porto, i create this for clear assignment from Dibimbing and learn how to implement a Parallax. This course teaches basic HTML, basic CSS, and basic JavaScript. And for the assignment we must create a simple porto for final Assigment ",
+            source_code:"https://github.com/Marszell/Marszell.github.io",
+            image:"./public/PortoV1.JPG"
+        },
     ],
     certificates: [
         {
@@ -126,9 +140,7 @@ const contentData = {
         },
     ],
 };
-// ];
 
-// membuat function untuk menapilkan project
 // Function to generate HTML for a single project
 function createProjectHTML(project) {
     return `
@@ -176,7 +188,10 @@ function createTechStackToolsHTML(item) {
 function createCertificateHTML(item) {
     return `
         <div class="certificate-item">
-            <img src="${item.image}" alt="Certificate" class="certificate-image">
+            <div class="certificate-image-container">
+                <img src="${item.image}" alt="Certificate" class="certificate-image">
+                <div class="overlay-text">View Certificate</div>
+            </div>
         </div>
     `;
 }
@@ -196,7 +211,7 @@ function displayContent(tab) {
         // Add click event listeners to certificate images
         document.querySelectorAll('.certificate-image').forEach(image => {
             image.addEventListener('click', () => {
-                const modal = document.getElementById('certificate-modal');
+                const modal = document.getElementById('modal-wrapper');
                 const modalImg = document.getElementById('modal-image');
                 modal.style.display = 'block';
                 modalImg.src = image.src;
@@ -230,8 +245,15 @@ document.querySelectorAll('.tab-button').forEach(button => {
 
 // Close the modal when the close button is clicked
 document.querySelector('.close').addEventListener('click', () => {
-    document.getElementById('certificate-modal').style.display = 'none';
+    document.getElementById('modal-wrapper').style.display = 'none';
 });
+
+window.onclick = function(event) {
+    const modalWrapper = document.getElementById('modal-wrapper');
+    if (event.target == modalWrapper) {
+        modalWrapper.style.display = "none";
+    }
+};
 
 // Load default content (Projects) on page load
 document.addEventListener('DOMContentLoaded', () => {
