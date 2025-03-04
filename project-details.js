@@ -1,24 +1,3 @@
-//Parallax 
-let pyro = document.querySelector(".layer1");
-let hydro = document.querySelector(".layer2");
-let anemo = document.querySelector(".layer3");
-let electro = document.querySelector(".layer4");
-let dendro = document.querySelector(".layer5");
-let cryo = document.querySelector(".layer6");
-let geo = document.querySelector(".layer7");
-
-window.addEventListener('scroll', ()=>{
-    let value = window.scrollY;
-    
-    pyro.style.transform = `translateY(${value * 1.5}px)`;
-    hydro.style.transform = `translateY(${value * -1.5}px)`;
-    anemo.style.transform = `translateY(${value * 1.5}px)`;
-    electro.style.transform = `translateY(${value * -1.5}px)`;
-    dendro.style.transform = `translateY(${value * 1.5}px)`;
-    cryo.style.transform = `translateY(${value * -1.5}px)`;
-    geo.style.transform = `translateY(${value * 1.5}px)`;
-});
-
 //Project data
 const contentData = {
     project: [
@@ -205,155 +184,29 @@ const contentData = {
     ],
 };
 
-// Function to generate HTML for a single project
-// function createProjectHTML(project) {
-//     return `
-//         <div class="showproject">
-//             <div class="project-image">
-//                 <img src="${project.image}">
-//             </div>
-//             <div class="project-info">
-//                 <div class="project-title">
-//                     <h4>${project.title}</h4>
-//                 </div>
-//                 <div class="project-desc">
-//                     <span>${project.short_desc}</span>
-//                 </div>
-//                 <div class="project-button">
-//                     <button class="learn-more">
-//                         <span class="circle" aria-hidden="true">
-//                             <span class="icon arrow"></span>
-//                         </span>
-//                         <span class="button-text">Details</span>
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//     `;
-// }
+// Fetch project details based on the ID in the URL
+const urlParams = new URLSearchParams(window.location.search);
+const projectId = urlParams.get('id');
 
-function createProjectHTML(project) {
-    return `
-        <div class="showproject">
-            <div class="project-image">
-                <img src="${project.image}">
-            </div>
-            <div class="project-info">
-                <div class="project-title">
-                    <h4>${project.title}</h4>
-                </div>
-                <div class="project-desc">
-                    <span>${project.short_desc}</span>
-                </div>
-                <div class="project-button">
-                    <button class="learn-more" data-id="${project.id}">
-                        <span class="circle" aria-hidden="true">
-                            <span class="icon arrow"></span>
-                        </span>
-                        <span class="button-text">Details</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-}
+// Fetch the project data from the contentData object
+const project = contentData.project.find(p => p.id == projectId);
 
-// Function to generate HTML for Tech Stack and Tools
-function createTechStackToolsHTML(item) {
-    return `
-        <div class="showtech-tools">
-            <div class="tech-tools-image">
-                <img src="${item.image}">
-            </div>
-            <div class="tech-tools-info">
-                <div class="tech-tools-title">
-                    <h4>${item.title}</h4>
-                </div>
-            </div>
-        </div>
-    `;
-}
+if (project) {
+    // Populate the project details
+    document.getElementById('project-title').textContent = project.title;
+    document.getElementById('project-description').textContent = project.desc;
+    document.getElementById('project-image').src = project.image;
+    document.getElementById('project-source-code').href = project.source_code;
 
-// Function to generate HTML for Certificates
-function createCertificateHTML(item) {
-    return `
-        <div class="certificate-item">
-            <div class="certificate-image-container">
-                <img src="${item.image}" alt="Certificate" class="certificate-image">
-                <div class="overlay-text">View Certificate</div>
-            </div>
-        </div>
-    `;
-}
-
-// Function to display content based on the selected tab
-function displayContent(tab) {
-    const container = document.getElementById('showproject-container');
-    container.innerHTML = ''; // Clear existing content
-
-    const data = contentData[tab];
-    if (tab === 'certificates') {
-        data.forEach(item => {
-            const itemHTML = createCertificateHTML(item);
-            container.insertAdjacentHTML('beforeend', itemHTML);
-        });
-
-        // Add click event listeners to certificate images
-        document.querySelectorAll('.certificate-image').forEach(image => {
-            image.addEventListener('click', () => {
-                const modal = document.getElementById('modal-wrapper');
-                const modalImg = document.getElementById('modal-image');
-                modal.style.display = 'block';
-                modalImg.src = image.src;
-            });
-        });
-    } else if (tab === 'Techstack' || tab === 'Tools') {
-        data.forEach(item => {
-            const itemHTML = createTechStackToolsHTML(item);
-            container.insertAdjacentHTML('beforeend', itemHTML);
-        });
-    } else {
-        data.forEach(item => {
-            const itemHTML = createProjectHTML(item);
-            container.insertAdjacentHTML('beforeend', itemHTML);
-        });
-    }
-}
-
-// Add event listeners to tabs
-document.querySelectorAll('.tab-button').forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-        // Add active class to the clicked button
-        button.classList.add('active');
-        // Display content for the selected tab
-        const tab = button.getAttribute('data-tab');
-        displayContent(tab);
+    // Populate technologies used
+    const techList = document.getElementById('project-tech');
+    project.tech.forEach(tech => {
+        const li = document.createElement('li');
+        li.textContent = tech;
+        techList.appendChild(li);
     });
-});
 
-// Close the modal when the close button is clicked
-document.querySelector('.close').addEventListener('click', () => {
-    document.getElementById('modal-wrapper').style.display = 'none';
-});
-
-window.onclick = function(event) {
-    const modalWrapper = document.getElementById('modal-wrapper');
-    if (event.target == modalWrapper) {
-        modalWrapper.style.display = "none";
-    }
-};
-
-// Load default content (Projects) on page load
-document.addEventListener('DOMContentLoaded', () => {
-    displayContent('project');
-
-    //new
-    document.querySelectorAll('.learn-more').forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.getAttribute('data-id');
-            window.location.href = `project-details.html?id=${projectId}`;
-        });
-    });
-});
+    // Populate key features (if any)
+    const featuresList = document.getElementById('project-features');
+    // Add key features if available in the project data
+}
