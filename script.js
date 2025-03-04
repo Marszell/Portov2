@@ -208,7 +208,6 @@ function displayContent(tab) {
             container.insertAdjacentHTML('beforeend', itemHTML);
         });
 
-        // Add click event listeners to certificate images
         document.querySelectorAll('.certificate-image').forEach(image => {
             image.addEventListener('click', () => {
                 const modal = document.getElementById('modal-wrapper');
@@ -233,11 +232,8 @@ function displayContent(tab) {
 // Add event listeners to tabs
 document.querySelectorAll('.tab-button').forEach(button => {
     button.addEventListener('click', () => {
-        // Remove active class from all buttons
         document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-        // Add active class to the clicked button
         button.classList.add('active');
-        // Display content for the selected tab
         const tab = button.getAttribute('data-tab');
         displayContent(tab);
     });
