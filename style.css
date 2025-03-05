@@ -517,6 +517,16 @@ button:hover .button-text {
     padding: 6rem 0;
 }
 
+.content-contact {
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.contact-left {
+    padding-left: 150px;
+}
+
 .contact-information {
     display: flex;
     align-items: center;
@@ -660,12 +670,31 @@ footer {
         width: 100%; /* Make GIF responsive */
     }
 
+    .Parallax-container img{
+        width: 60px;
+    }
+
     .wrapper {
         padding-left: 0; /* Remove left padding for projects */
     }
 
     .showproject {
         width: 100%; /* Make project cards full width */
+    }
+
+    .content-contact {
+        grid-template-columns: 1fr; /* Stack about section items */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .tab-button {
+        font-size: 20px;
+        line-height: 19px;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 5px;
+        border: none;
+        width: 100px;
     }
 }
 
@@ -709,5 +738,115 @@ footer {
 
     .showproject {
         width: 30%; /* Adjust project card width for desktop */
+    }
+}
+
+/* for project-details responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .navMenu {
+        flex-direction: column;
+        gap: 1rem;
+        padding-right: 0;
+    }
+
+    .project-details-container {
+        padding: 3rem 1rem; /* Adjust padding for mobile */
+    }
+
+    .content-project {
+        flex-direction: column; /* Stack left and right sides */
+    }
+
+    .project-info {
+        margin-bottom: 2rem; /* Add space between sections */
+    }
+
+    .project-image-features {
+        display: flex;
+        flex-direction: column; /* Stack image and features vertically */
+        align-items: center; /* Center align */
+    }
+
+    .project_image img {
+        width: 100%; /* Make image responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .back-button {
+        font-size: 16px; /* Adjust font size */
+        text-align: center; /* Center align */
+    }
+
+    .project-title h2 {
+        font-size: 24px; /* Adjust title size */
+    }
+
+    .project-description p {
+        font-size: 0.9rem; /* Adjust description size */
+    }
+
+    .project-tech ul,
+    .project-features ul {
+        padding-left: 0; /* Remove padding */
+    }
+
+    .project-button {
+        margin-top: 1rem; /* Adjust margin */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 1.5rem 0;
+    }
+
+    .project-details-container {
+        padding: 4rem 2rem; /* Adjust padding for tablet */
+    }
+
+    .content-project {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 2rem; /* Add gap between columns */
+    }
+
+    .project_image img {
+        width: 80%; /* Adjust image size */
+    }
+
+    .project-title h2 {
+        font-size: 28px; /* Adjust title size */
+    }
+
+    .project-description p {
+        font-size: 1rem; /* Adjust description size */
+    }
+}
+
+@media (min-width: 1025px) {
+    .navbar {
+        padding: 2rem 0;
+    }
+
+    .project-details-container {
+        padding: 6rem 4rem; /* Maintain padding for larger screens */
+    }
+
+    .content-project {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+    }
+
+    .project-title h2 {
+        font-size: 30px; /* Maintain title size */
+    }
+
+    .project-description p {
+        font-size: 1rem; /* Maintain description size */
     }
 }
