@@ -67,7 +67,7 @@ const contentData = {
             id:4,
             title: "Todo List",
             short_desc: "I created this project to learn CRUD and hone my skills in programming, this project using Nextjs, and postgresql",
-            desc: "",
+            desc: "I create to-do lists because I like taking notes on what I must do and what I should do. I usually write these notes on WhatsApp or Discord. I do this because I worry about forgetting my assignments or other tasks. After finishing my e-commerce project, I decided to create this to-do list project to improve my coding skills and have something practical to use when needed. I built this project using Next.js for both the frontend and backend, along with Prisma and PostgreSQL.",
             source_code:"https://github.com/Marszell/todo-list",
             image:"./public/todo.JPG",
             tech:[
@@ -209,4 +209,9 @@ if (project) {
     // Populate key features (if any)
     const featuresList = document.getElementById('project-features');
     // Add key features if available in the project data
+    project.key_features.forEach(key_features => {
+        const li = document.createElement('li');
+        li.textContent = key_features;
+        featuresList.appendChild(li);
+    });
 }
