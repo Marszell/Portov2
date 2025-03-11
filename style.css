@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
 body, html{
     font-family: Roboto, sans-serif;
     background: #F7F7F7;
@@ -45,7 +52,7 @@ a {
     color: #EEEEEE;
 }
 
-.navMenu a:hover,
+.navMenu a:hover,z
 .navMenu a:active{
     text-decoration: underline;
     color:black;
