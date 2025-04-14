@@ -698,8 +698,12 @@ footer {
     .content-contact {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 4rem;
         padding-left: 0;
+    }
+
+    .contact-left{
+        padding-left: 50px;
     }
 
     .contact-right {
