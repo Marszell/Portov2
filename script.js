@@ -126,6 +126,12 @@ const contentData = {
         {
             image:"./public/Sertifikat Dibimbing.JPG",
         },
+        {
+            image:"./public/Sertifikat Dicoding Java.JPG",
+        },
+        {
+            image:"./public/Achievements Binus Online Learning.jpg",
+        }
     ],
     Techstack: [
         {
@@ -149,12 +155,12 @@ const contentData = {
             image:"./public/icon/nextjs.png",
         },
         {
-            title:"Golang",
-            image:"./public/icon/golang.png",
+            title:"Java",
+            image:"./public/icon/java.png",
         },
         {
-            title:"Vercel",
-            image:"./public/icon/vercel.jpg",
+            title:"Golang",
+            image:"./public/icon/golang.png",
         },
         {
             title:"Postgresql",

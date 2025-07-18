@@ -357,14 +357,14 @@ button:hover .button-text {
 
 /* Certificate css */
 .certificate-item img {
-    width:350px;
+    width:310px;
 }
 
 .certificate-item {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    width: 350px;
+    width: 310px;
     height: auto;
 }
 
@@ -393,7 +393,7 @@ button:hover .button-text {
     transition: opacity 0.3s ease;
     pointer-events: none;
     background: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 5px;
 }
 
