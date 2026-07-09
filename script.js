@@ -101,6 +101,50 @@ const contentData = {
             ],
         },
         {
+            id:6,
+            title: "PixelHub",
+            short_desc: "A blockchain-based digital art commission platform connecting clients and artists through on-chain escrow payments.",
+            desc: "A thesis project that bridges clients and digital artists with a trustless commission workflow. Payments are locked in a Solidity escrow smart contract until work is submitted and approved, delivered artwork is stored permanently on IPFS via Pinata, and users authenticate with their Ethereum wallet instead of a username/password. The platform also includes a gallery feed, likes, and per-order chat between client and artist.",
+            source_code: "https://github.com/Marszell/pixelhub-b26",
+            image: "./public/project6.jpg",
+            tech:[
+                "Nextjs",
+                "Postgresql",
+                "Prisma",
+                "Solidity",
+                "Ethers.js",
+                "NextAuth",
+            ],
+            key_features:[
+                "Wallet-based authentication via Sign-In with Ethereum (SIWE), no username/password.",
+                "On-chain escrow smart contracts (EscrowFactory & RemotePayment) automating deposit, work submission, approval, and refund flows.",
+                "Automatic deadlines with fallback refund/auto-release if either party goes unresponsive.",
+                "Dispute resolution flow handled by a neutral arbiter.",
+                "Artwork storage on IPFS via Pinata, ensuring delivered files can't be deleted or altered.",
+                "Artist gallery/feed with likes and real-time chat per order.",
+            ],
+        },
+        {
+            id:7,
+            title: "Daily Management",
+            short_desc: "A daily expense tracker and shopping list manager built with a Spring Boot REST API and Next.js frontend.",
+            desc: "A full-stack daily utility app for keeping personal spending and shopping needs organized. The Java/Spring Boot backend exposes a REST API backed by PostgreSQL to record money entries and shopping items, while the Next.js frontend presents a spending summary panel alongside a shopping list where each item carries an urgency level and status.",
+            source_code: "https://github.com/Marszell/Daily-Management",
+            image: "./public/project7.jpg",
+            tech:[
+                "Java",
+                "Nextjs",
+                "Postgresql",
+            ],
+            key_features:[
+                "Log daily expenses with price, note, and date.",
+                "Spending summary panel to review recorded expenses at a glance.",
+                "Shopping list with urgency levels and pending/done status tracking.",
+                "REST API backend built with Spring Boot and Spring Data JPA.",
+                "PostgreSQL persistence for both expense and shopping data.",
+            ],
+        },
+        {
             id:5,
             title: "PortoV1",
             short_desc: "A responsive portfolio website with parallax effects, created as part of a Dibimbing course assignment.",
@@ -261,6 +305,21 @@ function createCertificateHTML(item) {
     `;
 }
 
+// Project preview limit before "See More" is needed
+const PROJECT_PREVIEW_COUNT = 6;
+let isProjectExpanded = false;
+
+// Function to generate the See More / See Less toggle button
+function createToggleButtonHTML(expanded) {
+    return `
+        <div class="toggle-projects-wrapper">
+            <button class="button-cv toggle-projects-btn">
+                <span class="front text">${expanded ? 'See Less' : 'See More'}</span>
+            </button>
+        </div>
+    `;
+}
+
 // Function to display content based on the selected tab
 function displayContent(tab) {
     const container = document.getElementById('showproject-container');
@@ -287,12 +346,33 @@ function displayContent(tab) {
             container.insertAdjacentHTML('beforeend', itemHTML);
         });
     } else {
-        data.forEach(item => {
+        const visibleProjects = isProjectExpanded ? data : data.slice(0, PROJECT_PREVIEW_COUNT);
+        visibleProjects.forEach(item => {
             const itemHTML = createProjectHTML(item);
             container.insertAdjacentHTML('beforeend', itemHTML);
         });
+
+        if (data.length > PROJECT_PREVIEW_COUNT) {
+            container.insertAdjacentHTML('beforeend', createToggleButtonHTML(isProjectExpanded));
+        }
     }
 }
+
+// Delegated click handling so it keeps working after the container is re-rendered
+document.getElementById('showproject-container').addEventListener('click', (event) => {
+    const learnMoreBtn = event.target.closest('.learn-more');
+    if (learnMoreBtn) {
+        const projectId = learnMoreBtn.getAttribute('data-id');
+        window.location.href = `project-details.html?id=${projectId}`;
+        return;
+    }
+
+    const toggleBtn = event.target.closest('.toggle-projects-btn');
+    if (toggleBtn) {
+        isProjectExpanded = !isProjectExpanded;
+        displayContent('project');
+    }
+});
 
 // Add event listeners to tabs
 document.querySelectorAll('.tab-button').forEach(button => {
@@ -300,6 +380,9 @@ document.querySelectorAll('.tab-button').forEach(button => {
         document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         const tab = button.getAttribute('data-tab');
+        if (tab === 'project') {
+            isProjectExpanded = false;
+        }
         displayContent(tab);
     });
 });
@@ -319,12 +402,4 @@ window.onclick = function(event) {
 // Load default content (Projects) on page load
 document.addEventListener('DOMContentLoaded', () => {
     displayContent('project');
-
-    //new
-    document.querySelectorAll('.learn-more').forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.getAttribute('data-id');
-            window.location.href = `project-details.html?id=${projectId}`;
-        });
-    });
 });
