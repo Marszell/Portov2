@@ -183,6 +183,38 @@ a {
     width: 350px;
 }
 
+.experience-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 100;
+    font-size: 1rem;
+    color: #211b1be8;
+}
+
+.experience-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #161617;
+}
+
+#Experience .rightside img {
+    width: 280px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 .button-cv {
     border: none;
     outline: none;
